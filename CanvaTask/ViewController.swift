@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  CanvaTask
 //
-//  Created by Darius Miliauskas on 08/06/2017.
+//  Created by Darius Miliauskas on 07/06/2017.
 //  Copyright © 2017 Darius Miliauskas. All rights reserved.
 //
 
@@ -39,14 +39,18 @@ class ViewController: UIViewController {
     func fetchStartRoom() {
         manager.fetchStartRoom(callback: {data ,error in
             if (error == nil) {
-                
                 if let theData = data {
-                    
-                    if let json = try? JSONSerialization.jsonObject(with: theData, options: []) as! [String : Any]
+                    if let theJson = try? JSONSerialization.jsonObject(with: theData, options: []), let json = theJson as? [String : Any]
                     {
-                        print(json)
-                        let maze = try? Maze(json: json)
-                        print(maze ?? "zero")
+//                        do {
+                        if let maze = try? Maze(json: json), var maz = maze {
+                            maz.tileUrl = "http://lunar.lostgarden.com/uploaded_images/ExteriorTest-760306.jpg"
+                            print(maz)
+                        }
+//                        } catch SerializationError.missing(err){
+//                            alert(message: err)
+//                            
+//                        }
                     }
                 }
             } else {
@@ -66,34 +70,3 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
-
-//https://developer.apple.com/swift/blog/?id=37
-struct Maze {
-    let id: String
-//    let tileUrl: String?
-}
-
-enum SerializationError: Error {
-    case missing(String)
-    case invalid(String, Any)
-}
-
-extension Maze {
-    init?(json: [String: Any]) throws {
-        guard let id = json["id"] as? String
-            else {
-               throw SerializationError.missing("id")
-        }
-        
-//        guard let tileUrl = json["tileUrl"] as? String
-//            else {
-//                return nil
-//        }
-        
-        self.id = id
-//        self.tileUrl = tileUrl
-    }
-}
-
-//        let server = MosaicTileServer()
-//        server.fetchTile(for: <#T##UIColor#>, size: <#T##CGSize#>, success: <#T##(UIImage) -> Void#>, failure: <#T##(Error) -> Void#>)

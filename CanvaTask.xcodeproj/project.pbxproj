@@ -16,6 +16,7 @@
 		A320CECB1EE91859003A2FEE /* TakeHomeTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A320CECA1EE91859003A2FEE /* TakeHomeTask.framework */; };
 		A320CECC1EE91886003A2FEE /* TakeHomeTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A320CECA1EE91859003A2FEE /* TakeHomeTask.framework */; };
 		A320CECD1EE91886003A2FEE /* TakeHomeTask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A320CECA1EE91859003A2FEE /* TakeHomeTask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A320CED01EE9388D003A2FEE /* Maze.swift in Sources */ = {isa = PBXBuildFile; fileRef = A320CECF1EE9388D003A2FEE /* Maze.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		A320CEB91EE9177C003A2FEE /* CanvaTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvaTaskTests.swift; sourceTree = "<group>"; };
 		A320CEBB1EE9177C003A2FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A320CECA1EE91859003A2FEE /* TakeHomeTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TakeHomeTask.framework; sourceTree = "<group>"; };
+		A320CECF1EE9388D003A2FEE /* Maze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maze.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				A320CEA41EE9177C003A2FEE /* AppDelegate.swift */,
 				A320CEA61EE9177C003A2FEE /* ViewController.swift */,
+				A320CECF1EE9388D003A2FEE /* Maze.swift */,
 				A320CEA81EE9177C003A2FEE /* Main.storyboard */,
 				A320CEAB1EE9177C003A2FEE /* Assets.xcassets */,
 				A320CEAD1EE9177C003A2FEE /* LaunchScreen.storyboard */,
@@ -233,6 +236,7 @@
 			files = (
 				A320CEA71EE9177C003A2FEE /* ViewController.swift in Sources */,
 				A320CEA51EE9177C003A2FEE /* AppDelegate.swift in Sources */,
+				A320CED01EE9388D003A2FEE /* Maze.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
