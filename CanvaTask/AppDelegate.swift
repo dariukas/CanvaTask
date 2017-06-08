@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  CanvaTask
 //
-//  Created by Kristina Šlekytė on 08/06/2017.
+//  Created by Darius Miliauskas on 08/06/2017.
 //  Copyright © 2017 Darius Miliauskas. All rights reserved.
 //
 

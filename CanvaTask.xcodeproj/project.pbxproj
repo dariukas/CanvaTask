@@ -13,6 +13,9 @@
 		A320CEAC1EE9177C003A2FEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A320CEAB1EE9177C003A2FEE /* Assets.xcassets */; };
 		A320CEAF1EE9177C003A2FEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A320CEAD1EE9177C003A2FEE /* LaunchScreen.storyboard */; };
 		A320CEBA1EE9177C003A2FEE /* CanvaTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A320CEB91EE9177C003A2FEE /* CanvaTaskTests.swift */; };
+		A320CECB1EE91859003A2FEE /* TakeHomeTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A320CECA1EE91859003A2FEE /* TakeHomeTask.framework */; };
+		A320CECC1EE91886003A2FEE /* TakeHomeTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A320CECA1EE91859003A2FEE /* TakeHomeTask.framework */; };
+		A320CECD1EE91886003A2FEE /* TakeHomeTask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A320CECA1EE91859003A2FEE /* TakeHomeTask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +28,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A320CECE1EE91886003A2FEE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A320CECD1EE91886003A2FEE /* TakeHomeTask.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A320CEA11EE9177C003A2FEE /* CanvaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanvaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A320CEA41EE9177C003A2FEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +53,7 @@
 		A320CEB51EE9177C003A2FEE /* CanvaTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanvaTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A320CEB91EE9177C003A2FEE /* CanvaTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvaTaskTests.swift; sourceTree = "<group>"; };
 		A320CEBB1EE9177C003A2FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A320CECA1EE91859003A2FEE /* TakeHomeTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TakeHomeTask.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A320CECB1EE91859003A2FEE /* TakeHomeTask.framework in Frameworks */,
+				A320CECC1EE91886003A2FEE /* TakeHomeTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +79,7 @@
 		A320CE981EE9177B003A2FEE = {
 			isa = PBXGroup;
 			children = (
+				A320CEC91EE91859003A2FEE /* Frameworks */,
 				A320CEA31EE9177C003A2FEE /* CanvaTask */,
 				A320CEB81EE9177C003A2FEE /* CanvaTaskTests */,
 				A320CEA21EE9177C003A2FEE /* Products */,
@@ -96,6 +117,14 @@
 			path = CanvaTaskTests;
 			sourceTree = "<group>";
 		};
+		A320CEC91EE91859003A2FEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A320CECA1EE91859003A2FEE /* TakeHomeTask.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +135,7 @@
 				A320CE9D1EE9177C003A2FEE /* Sources */,
 				A320CE9E1EE9177C003A2FEE /* Frameworks */,
 				A320CE9F1EE9177C003A2FEE /* Resources */,
+				A320CECE1EE91886003A2FEE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -329,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -342,7 +372,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LAYLAP53SY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = CanvaTask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dariukas.CanvaTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,7 +391,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LAYLAP53SY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = CanvaTask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dariukas.CanvaTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
