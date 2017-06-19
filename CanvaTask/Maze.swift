@@ -8,23 +8,28 @@
 
 import Foundation
 
+//maz.tileUrl = "http://lunar.lostgarden.com/uploaded_images/ExteriorTest-760306.jpg"
 //https://developer.apple.com/swift/blog/?id=37
-//class Maze {
-//    let id: String
-//    var tileUrl: String?
-//
-//    init?(json: [String: Any]) throws {
-//        guard let id = json["id"] as? String
-//            else {
-//                throw SerializationError.missing("id")
-//        }
-//        self.id = id
-//    }
-//}
-
-struct Maze {
+/*class Room {
     let id: String
     var tileUrl: String?
+    var type: String?
+    var neighbors: [Room]?
+    
+    init?(json: [String: Any]) throws {
+        guard let id = json["id"] as? String
+            else {
+                throw SerializationError.missing("id")
+        }
+        self.id = id
+    }
+}*/
+
+struct Room {
+    let id: String
+    var tileUrl: String?
+    var type: String?
+    var neighbors: [Room]?
 }
 
 enum SerializationError: Error {
@@ -32,13 +37,19 @@ enum SerializationError: Error {
     case invalid(String, Any)
 }
 
-extension Maze {
+extension Room {
     init?(json: [String: Any]) throws {
         guard let id = json["id"] as? String
             else {
                 throw SerializationError.missing("id")
         }
         self.id = id
+        if let tileUrl = json["tileUrl"] as? String {
+            self.tileUrl = tileUrl
+        }
+        if let type = json["type"] as? String {
+            self.type = type
+        }
     }
 }
 

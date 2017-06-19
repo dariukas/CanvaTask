@@ -39,20 +39,47 @@ class ViewController: UIViewController {
         
     }
     
+    
+    func fetchRoom(room: Room) {
+        manager.fetchRoom(withIdentifier: room.id, callback: {data ,error in
+            if (error == nil) {
+                if let theData = data {
+                    if let theJson = try? JSONSerialization.jsonObject(with: theData, options: []), let json = theJson as? [String : Any]
+                    {
+                        do {
+                            if let room = try Room(json: json) as? Room {
+                                print(room)
+                            }
+                        }
+                        catch SerializationError.missing("room"){
+                            self.alert(message: "Error: There is no room.")
+                        }
+                    }
+                }
+            } else {
+                if let errorMessage = error as? String {
+                    self.alert(message: errorMessage)
+                }
+            }
+        })
+    }
+    
+
+
     func fetchStartRoom() {
         manager.fetchStartRoom(callback: {data ,error in
-            
-            print("data1"+String(describing: data))
             if (error == nil) {
                 if let theData = data {
                     if let theJson = try? JSONSerialization.jsonObject(with: theData, options: []), let json = theJson as? [String : Any]
                     {
 //                        do {
                         
-                        print("data2"+String(describing: json))
-                        if let maze = try? Maze(json: json), var maz = maze {
-                            maz.tileUrl = "http://lunar.lostgarden.com/uploaded_images/ExteriorTest-760306.jpg"
+                        
+                        if let maze = try? Room(json: json), let maz = maze {
+                            
                             print(maz)
+                            self.fetchRoom(room: maz)
+                            
                         }
 //                        } catch SerializationError.missing(err){
 //                            alert(message: err)
