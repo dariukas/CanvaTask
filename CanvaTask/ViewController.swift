@@ -34,15 +34,22 @@ class ViewController: UIViewController {
     }
     
     func run() {
+        
+        
+        
     }
     
     func fetchStartRoom() {
         manager.fetchStartRoom(callback: {data ,error in
+            
+            print("data1"+String(describing: data))
             if (error == nil) {
                 if let theData = data {
                     if let theJson = try? JSONSerialization.jsonObject(with: theData, options: []), let json = theJson as? [String : Any]
                     {
 //                        do {
+                        
+                        print("data2"+String(describing: json))
                         if let maze = try? Maze(json: json), var maz = maze {
                             maz.tileUrl = "http://lunar.lostgarden.com/uploaded_images/ExteriorTest-760306.jpg"
                             print(maz)
