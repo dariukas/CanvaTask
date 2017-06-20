@@ -12,9 +12,11 @@ import TakeHomeTask
 class ViewController: UIViewController {
     
     @IBOutlet weak var mazeImgView: UIImageView!
-    
+    @IBOutlet weak var mazeView: UIView!
+
     let manager = Manager()
     var mazeIds = [Id]() //storing to avoid the repetition of the same tiles
+    var queue = OperationQueue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +31,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func generateBtnClick(_ sender: Any) {
+//        self.queue.cancelAllOperations()
+//        self.mazeImgView.subviews.forEach{ $0.removeFromSuperview()}
+//        self.mazeIds = [Id]()
         startMaze()
+//        if let vc = self.childViewControllers.first as? MazeViewController {
+//            vc.startMaze()
+//        }
     }
-    
+
     func initialRect() -> CGRect {
         let width = self.mazeImgView.frame.width //Maze ImageView width
         let height = self.mazeImgView.frame.height //Maze ImageView height
@@ -47,22 +55,25 @@ class ViewController: UIViewController {
                 return
             }
             self.addRoomWith(id: room.id, in: self.initialRect())
+//            self.queue.addOperation { () -> Void in
+//               
+//            }
         })
     }
     
     //recursive method to repeat while the maze is completed
     func addRoomWith(id: Id, in rect: CGRect) {
+        
         manager.requestRoomWith(roomID: id, completion: {room, errorMessage in
             guard let room = room else {
                 self.alert(message: errorMessage ?? "Error!")
                 return
             }
             
-            guard !self.mazeIds.contains(room.id) else { //contains validate non repetition
+            guard !self.mazeIds.contains(room.id) else { //"contains" helps to validate non repetition
                 return
             }
             self.mazeIds.append(room.id)
-            print(self.mazeIds)
             
             guard let tileUrl = room.tileUrl else {
                 return
@@ -70,9 +81,15 @@ class ViewController: UIViewController {
             
             self.setImageViewWithTile(tileUrl: tileUrl, tileFrame: rect){
                 for (key, value) in  room.rooms {
-                    let rect1 = rect.moveTo(direction: key)
-                    self.addRoomWith(id: value, in: rect1)
+                    self.addRoomWith(id: value, in: rect.moveTo(direction: key))
                 }
+                let operation1 = BlockOperation(block: {
+                })
+                operation1.completionBlock = {
+                    print("Operation completed")
+                }
+                self.queue.addOperation(operation1)
+      
             }
         })
     }
@@ -96,6 +113,7 @@ class ViewController: UIViewController {
 }
 
 extension CGRect {
+    //creating a copy of CGRect which is moved to the certain direction
     func moveTo(direction: String) -> CGRect {
         var newRect = self
         let value = self.size.width
@@ -118,6 +136,7 @@ extension CGRect {
 }
 
 extension UIImageView {
+    //downloading the image
     func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { (data, response, error) in

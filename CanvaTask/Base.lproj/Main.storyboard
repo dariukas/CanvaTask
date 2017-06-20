@@ -52,8 +52,8 @@
                                     <action selector="generateBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qZu-yS-BhL"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Border" translatesAutoresizingMaskIntoConstraints="NO" id="QhN-Th-n38">
-                                <rect key="frame" x="32" y="51" width="316" height="348"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Border" translatesAutoresizingMaskIntoConstraints="NO" id="QhN-Th-n38">
+                                <rect key="frame" x="32" y="51" width="316" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -66,6 +66,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Maze View Controller-->
+        <scene sceneID="qf3-y1-h7C">
+            <objects>
+                <viewController id="7P8-Ey-HXt" customClass="MazeViewController" customModule="CanvaTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a0a-qs-FbJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VcL-dL-uWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="765" y="130"/>
         </scene>
     </scenes>
     <resources>
